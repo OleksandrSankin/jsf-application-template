@@ -27,7 +27,7 @@ public class HomeController {
 
     public String sayHello1() {
         System.out.println("Hello2 " + name + " " + surname);
-        return "home.xhtml?faces-redirect=true&name=" + name;
+        return "hello.xhtml?faces-redirect=true&name=" + name;
     }
 
     public void sayHello2() {
