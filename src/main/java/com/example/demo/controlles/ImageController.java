@@ -4,7 +4,6 @@ import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import org.springframework.core.io.ClassPathResource;
 
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.IOException;
 

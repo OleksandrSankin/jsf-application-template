@@ -13,24 +13,30 @@
 
 <h:body>
 
+    <p:panelGrid columns="2" style="margin-left: auto; margin-right: auto; margin-top:15%; ">
+        <p:outputLabel value="Имя:"/>
+        <p:inputText id="username"/>
+
+        <p:outputLabel value="Пароль:"/>
+        <p:password id="password"/>
+    </p:panelGrid>
+
+    <p:growl showDetail="true" showSummary="true" autoUpdate="true" />
+
     <h:form>
         <p:commandButton value="Open dialog 1"
-                         oncomplete="PF('myDialog').show();"
-                         update="dialogId"/>
+                         action="#{homeController.sayHello2()}"/>
     </h:form>
-    <br/>
-    <p:commandLink value="Opend dialog 3" onclick="PF('myDialog').show();" />
 
-    <p:dialog id="dialogId" header="Hello" widgetVar="myDialog" modal="true"
-              closeOnEscape="true"
-              closable="true"
-              showEffect="fade"
-              hideEffect="fade"
-              resizable="true"
-              width="520"
-              height="100">
-        <p:outputLabel value="Hello"/>
+    <br/>
+    <h:form>
+        <p:commandLink value="Opend dialog 3" onclick="PF('myDialog').show();"/>
+    </h:form>
+
+    <p:dialog id="dialogId" header="Hello" widgetVar="myDialog">
+
     </p:dialog>
+
 </h:body>
 </html>
 
