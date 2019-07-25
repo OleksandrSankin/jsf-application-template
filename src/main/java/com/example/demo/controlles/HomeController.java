@@ -1,9 +1,14 @@
 package com.example.demo.controlles;
 
+import com.example.demo.Car;
+import com.example.demo.repos.CarRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import java.util.Date;
 
 @Named
 public class HomeController {
@@ -11,6 +16,17 @@ public class HomeController {
     private String name;
 
     private String surname;
+
+    @Autowired
+    private CarRepository carRepository;
+
+    public void saveCar() {
+        Car car = new Car();
+        car.setName("toyota");
+        car.setNumber(555);
+        car.setDate(new Date());
+        carRepository.save(car);
+    }
 
     @PostConstruct
     private void init() {
