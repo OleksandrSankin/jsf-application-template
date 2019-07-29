@@ -1,10 +1,15 @@
 package com.example.demo;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Car {
@@ -18,6 +23,17 @@ public class Car {
     private String name;
 
     private Integer number;
+
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+    private Set<Person> personList = new HashSet<>();
+
+    public Set<Person> getPersonList() {
+        return personList;
+    }
+
+    public void setPersonList(Set<Person> personList) {
+        this.personList = personList;
+    }
 
     public Long getId() {
         return id;

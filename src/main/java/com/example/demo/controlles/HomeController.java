@@ -1,14 +1,18 @@
 package com.example.demo.controlles;
 
 import com.example.demo.Car;
+import com.example.demo.Person;
 import com.example.demo.repos.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.util.Date;
+import java.util.List;
 
 @Named
 public class HomeController {
@@ -25,6 +29,18 @@ public class HomeController {
         car.setName("toyota");
         car.setNumber(555);
         car.setDate(new Date());
+
+        Person person1 = new Person();
+        person1.setName("2222");
+        person1.setCar(car);
+
+        Person person2 = new Person();
+        person2.setName("3333");
+        person2.setCar(car);
+
+        car.getPersonList().add(person1);
+        car.getPersonList().add(person2);
+
         carRepository.save(car);
     }
 
